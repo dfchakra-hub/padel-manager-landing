@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Padel Manager · Sistema operativo per circoli padel</title>
+  <meta name="description" content="Unifica operations, competizioni e player intelligence in un unico OS per circoli padel — MVP avanzato, fase pilot, nato da esperienza operativa reale." />
+  <meta property="og:title" content="Padel Manager · Sistema operativo per circoli padel" />
+  <meta property="og:description" content="Infrastruttura B2B per circoli moderni: non solo booking, non solo torneo — layer operativo e competitivo con player intelligence." />
+  <meta property="og:url" content="https://padelmanageros.com/" />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:image" content="https://padelmanageros.com/og-image.png" /> -->
+  <link rel="canonical" href="https://padelmanageros.com/" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:#1e293b;
+      background:
+        radial-gradient(115% 80% at 6% -4%,rgba(186,230,253,.75) 0%,transparent 50%),
+        radial-gradient(90% 70% at 94% 2%,rgba(233,213,255,.65) 0%,transparent 46%),
+        radial-gradient(100% 65% at 50% 110%,rgba(254,243,199,.45) 0%,transparent 50%),
+        linear-gradient(168deg,#eaf4fc 0%,#f2efff 40%,#fffaf6 100%);
+      min-height:100vh;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;z-index:0;
+      opacity:.55;
+      background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:14px 22px 0}
+    .glass{
+      border:1px solid rgba(255,255,255,.72);
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-radius:20px;
+      box-shadow:0 12px 40px -24px rgba(15,23,42,.22),inset 0 1px 0 rgba(255,255,255,.95);
+      transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+    }
+    .glass-interactive:hover{
+      border-color:rgba(255,255,255,.92);
+      box-shadow:0 16px 44px -22px rgba(15,23,42,.26),inset 0 1px 0 #fff;
+      transform:translateY(-2px);
+    }
+    .eyebrow{
+      font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:#0369a1;
+    }
+    h1{
+      margin:14px 0 12px;
+      font-size:clamp(1.75rem,3.2vw,2.75rem);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:800;
+      color:#0f172a;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:clamp(1.5rem,2.5vw,2.1rem);
+      line-height:1.12;
+      letter-spacing:-.03em;
+      font-weight:800;
+      color:#0f172a;
+    }
+    h3{margin:0 0 6px;font-size:1.05rem;line-height:1.3;font-weight:700;letter-spacing:-.02em;color:#0f172a}
+    p{color:#475569;font-size:.98rem;line-height:1.65;margin:0}
+    .lead{font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.58;color:#334155;max-width:34rem}
+    .section{padding:52px 0}
+    .section-head{max-width:38rem;margin-bottom:26px}
+    .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+    .section-head.center .lead{margin:0 auto}
+
+    /* Nav */
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:10px 14px;margin-bottom:4px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;min-width:0}
+    .brand-mark{
+      flex-shrink:0;width:38px;height:38px;border-radius:13px;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#fff,rgba(224,242,254,.85));
+      border:1px solid rgba(255,255,255,.95);
+      box-shadow:0 4px 14px -8px rgba(14,116,144,.3);
+      font-size:12px;font-weight:900;color:#0369a1;
+    }
+    .brand strong{display:block;font-size:12px;font-weight:700;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .nav-end{display:flex;align-items:center;gap:6px;flex-shrink:0}
+    .nav-links{display:flex;gap:0}
+    .nav-links a{
+      padding:7px 9px;border-radius:9px;font-size:11px;font-weight:600;color:#64748b;
+      transition:background .18s,color .18s;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.7);color:#0f172a}
+    .nav-links a:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px}
+    .lang-switch{
+      display:inline-flex;border:1px solid rgba(226,232,240,.9);border-radius:9px;overflow:hidden;
+      background:rgba(255,255,255,.65);
+    }
+    .lang-switch button{
+      border:0;background:transparent;padding:6px 9px;font-size:11px;font-weight:700;color:#64748b;cursor:pointer;
+    }
+    .lang-switch button.is-active{background:#fff;color:#0369a1;box-shadow:0 1px 4px rgba(15,23,42,.08)}
+    .lang-switch button:focus-visible{outline:2px solid #0ea5e9;outline-offset:-2px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      padding:10px 16px;border-radius:11px;font-size:13px;font-weight:700;
+      border:1px solid rgba(56,189,248,.5);
+      background:linear-gradient(135deg,#0284c7,#4f46e5);
+      color:#fff;
+      box-shadow:0 6px 18px -6px rgba(2,132,199,.4);
+      transition:transform .18s,box-shadow .18s;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px -6px rgba(2,132,199,.45)}
+    .btn:focus-visible{outline:2px solid #0ea5e9;outline-offset:3px}
+    .btn.secondary{
+      background:rgba(255,255,255,.9);color:#1e293b;
+      border-color:rgba(203,213,225,.95);
+      box-shadow:0 2px 10px -6px rgba(15,23,42,.1);
+    }
+    .btn.secondary:hover{transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;
+      padding:28px 0 16px;
+    }
+    .hero-pill{
+      display:inline-flex;padding:6px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.85);background:rgba(255,255,255,.7);
+      font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0369a1;
+    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .proof-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+    .proof-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 11px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.9);
+      background:rgba(255,255,255,.75);
+      font-size:10px;font-weight:700;color:#334155;
+    }
+    .proof-badge::before{
+      content:"";width:5px;height:5px;border-radius:999px;
+      background:linear-gradient(135deg,#22d3ee,#6366f1);
+    }
+
+    /* OS Visual */
+    .os-shell{padding:12px}
+    .os-cockpit{
+      position:relative;border-radius:16px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.95);
+      background:linear-gradient(160deg,rgba(255,255,255,.92) 0%,rgba(241,245,249,.75) 50%,rgba(224,242,254,.4) 100%);
+      box-shadow:inset 0 1px 0 #fff,0 20px 50px -30px rgba(14,116,144,.25);
+    }
+    .os-toolbar{
+      display:flex;align-items:center;justify-content:space-between;gap:8px;
+      padding:9px 12px;border-bottom:1px solid rgba(226,232,240,.6);
+      background:rgba(248,250,252,.85);
+    }
+    .os-toolbar-dots{display:flex;gap:4px}
+    .os-toolbar-dots span{width:6px;height:6px;border-radius:999px;background:linear-gradient(135deg,#38bdf8,#a78bfa)}
+    .os-toolbar-label{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#64748b}
+    .os-chips{
+      display:flex;flex-wrap:wrap;gap:5px;padding:8px 12px 0;
+      border-bottom:1px solid rgba(241,245,249,.9);
+    }
+    .os-chip{
+      padding:4px 8px;border-radius:999px;font-size:8px;font-weight:700;
+      border:1px solid rgba(186,230,253,.8);background:rgba(240,249,255,.85);color:#075985;
+    }
+    .os-chip.violet{border-color:rgba(221,214,254,.9);background:rgba(245,243,255,.9);color:#5b21b6}
+    .os-stage{position:relative;height:300px;margin:8px auto 12px;max-width:320px}
+    .os-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+    .os-line{
+      fill:none;stroke:url(#osGrad);stroke-width:1;stroke-dasharray:3 5;opacity:.5;
+    }
+    .os-orbit{fill:none;stroke:rgba(148,163,184,.25);stroke-width:1}
+    .os-core{
+      position:absolute;left:50%;top:50%;z-index:5;transform:translate(-50%,-50%);
+      width:108px;height:108px;border-radius:999px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px;
+      border:1px solid rgba(255,255,255,.98);
+      background:linear-gradient(150deg,#fff 0%,rgba(240,249,255,.95) 100%);
+      box-shadow:0 0 0 1px rgba(255,255,255,.8),0 0 36px rgba(56,189,248,.18),inset 0 1px 0 #fff;
+    }
+    .os-core-title{font-size:8px;font-weight:900;letter-spacing:.08em;line-height:1.2;color:#0f172a}
+    .os-core-sub{margin-top:4px;font-size:7px;font-weight:600;line-height:1.25;color:#64748b}
+    .os-node{
+      --r:120px;
+      position:absolute;left:50%;top:50%;
+      transform:rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a)));
+      z-index:4;
+    }
+    .os-node-inner{
+      width:48px;height:48px;border-radius:13px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+      border:1px solid rgba(255,255,255,.95);
+      background:rgba(255,255,255,.88);
+      box-shadow:0 8px 20px -12px rgba(15,23,42,.22),inset 0 1px 0 #fff;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .os-cockpit:hover .os-node-inner{transform:scale(1.05);box-shadow:0 10px 22px -10px rgba(14,116,144,.2)}
+    .os-glyph{
+      width:14px;height:14px;border-radius:4px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,rgba(224,242,254,.9),rgba(237,233,254,.9));
+      border:1px solid rgba(186,230,253,.6);
+      font-size:7px;font-weight:900;color:#0369a1;line-height:1;
+    }
+    .os-node-label{font-size:6.5px;font-weight:700;color:#64748b;text-align:center;line-height:1.05;max-width:44px}
+
+    /* Problem — 3 pillars */
+    .pillars-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .pillar{padding:22px 22px 20px}
+    .pillar-num{
+      width:32px;height:32px;border-radius:10px;margin-bottom:14px;
+      display:grid;place-items:center;
+      font-size:13px;font-weight:900;color:#b91c1c;
+      background:linear-gradient(135deg,rgba(254,226,226,.95),rgba(255,255,255,.9));
+      border:1px solid rgba(254,202,202,.75);
+    }
+    .pillar h3{font-size:1rem;margin-bottom:8px}
+    .pillar p{font-size:.92rem}
+
+    /* Solution */
+    .solution-panel{padding:26px 28px}
+    .solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+    .solution-point{
+      display:flex;gap:9px;align-items:flex-start;padding:12px 14px;
+      border-radius:12px;border:1px solid rgba(255,255,255,.8);
+      background:rgba(255,255,255,.55);
+      font-size:13px;font-weight:600;color:#334155;line-height:1.45;
+    }
+    .solution-point .check{color:#059669;font-weight:800;flex-shrink:0}
+
+    /* Three big cards */
+    .pillars-platform{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .pillar-card{padding:22px 22px 20px;display:flex;flex-direction:column;min-height:210px}
+    .tag{
+      display:inline-flex;width:max-content;margin-bottom:8px;
+      padding:3px 8px;border-radius:999px;
+      border:1px solid rgba(186,230,253,.85);background:rgba(240,249,255,.9);
+      font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#075985;
+    }
+    .tag.violet{border-color:rgba(221,214,254,.9);background:rgba(245,243,255,.92);color:#5b21b6}
+    .tag.amber{border-color:rgba(253,230,138,.9);background:rgba(255,251,235,.92);color:#b45309}
+    .pillar-card p{flex:1;margin-top:6px;font-size:.92rem}
+
+    /* Module grid 6 */
+    .mod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .mod-card{
+      padding:14px 16px;display:flex;align-items:center;gap:10px;
+      border-radius:14px;
+    }
+    .mod-icon{
+      flex-shrink:0;width:36px;height:36px;border-radius:11px;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,rgba(240,249,255,.95),rgba(255,255,255,.9));
+      border:1px solid rgba(186,230,253,.7);
+      font-size:10px;font-weight:900;color:#0369a1;letter-spacing:.04em;
+    }
+    .mod-card strong{display:block;font-size:13px;font-weight:700;color:#0f172a}
+    .mod-card span{font-size:11px;color:#64748b}
+
+    /* Intelligence feature */
+    .intel-feature{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:20px;
+      padding:28px 30px;
+      border:1px solid rgba(167,139,250,.28);
+      background:linear-gradient(135deg,rgba(255,255,255,.82) 0%,rgba(245,243,255,.6) 55%,rgba(224,242,254,.35) 100%);
+      box-shadow:0 18px 48px -28px rgba(91,33,182,.18),inset 0 1px 0 rgba(255,255,255,.95);
+    }
+    .intel-list{display:grid;gap:8px;margin-top:16px}
+    .intel-item{
+      display:flex;gap:8px;align-items:flex-start;padding:10px 12px;
+      border-radius:11px;background:rgba(255,255,255,.55);
+      border:1px solid rgba(255,255,255,.8);
+      font-size:13px;font-weight:600;color:#334155;line-height:1.4;
+    }
+    .intel-stats{display:grid;gap:10px;margin-top:4px}
+    .intel-stat{
+      padding:14px 16px;border-radius:14px;
+      background:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.85);
+    }
+    .intel-stat .label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#6d28d9}
+    .intel-stat .value{margin-top:4px;font-size:13px;font-weight:700;color:#0f172a}
+
+    /* Two col */
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .panel{padding:24px 26px}
+    .list{display:grid;gap:8px;margin-top:14px}
+    .list-item{
+      display:flex;gap:8px;align-items:flex-start;padding:11px 13px;
+      border-radius:12px;border:1px solid rgba(255,255,255,.78);
+      background:rgba(255,255,255,.5);
+      font-size:13px;font-weight:600;color:#334155;line-height:1.42;
+    }
+    .check{color:#059669;font-weight:800;flex-shrink:0}
+
+    /* Timeline status */
+    .timeline{display:grid;gap:0;margin-top:16px}
+    .timeline-step{
+      display:grid;grid-template-columns:28px 1fr;gap:12px;padding:12px 0;
+      border-bottom:1px solid rgba(226,232,240,.5);
+    }
+    .timeline-step:last-child{border-bottom:0}
+    .timeline-dot{
+      width:28px;height:28px;border-radius:999px;
+      display:grid;place-items:center;
+      font-size:11px;font-weight:800;color:#0369a1;
+      background:rgba(240,249,255,.95);border:1px solid rgba(186,230,253,.8);
+    }
+    .timeline-step strong{display:block;font-size:13px;color:#0f172a}
+    .timeline-step span{font-size:12px;color:#64748b}
+    .pilot-box{
+      margin-top:14px;padding:14px 16px;border-radius:14px;
+      border:1px dashed rgba(56,189,248,.4);background:rgba(240,249,255,.5);
+    }
+    .pilot-box h4{margin:0 0 8px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#0369a1}
+    .pilot-box ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+    .pilot-box li{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#334155}
+    .pilot-box li::before{content:"";width:6px;height:6px;border-radius:999px;background:#22c55e}
+
+    /* Final CTA */
+    .cta-final{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:0;
+      overflow:hidden;margin-bottom:0;
+    }
+    .cta-main{padding:32px 32px 28px}
+    .cta-audience{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 0}
+    .audience-pill{
+      padding:6px 11px;border-radius:999px;
+      border:1px solid rgba(186,230,253,.75);background:rgba(240,249,255,.7);
+      font-size:11px;font-weight:700;color:#075985;
+    }
+    .cta-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+    .cta-note{margin-top:14px;font-size:12px;color:#64748b;font-weight:500}
+    .cta-side{
+      padding:24px 22px;
+      background:linear-gradient(165deg,rgba(240,249,255,.75) 0%,rgba(245,243,255,.55) 100%);
+      border-left:1px solid rgba(255,255,255,.7);
+      display:flex;flex-direction:column;gap:10px;justify-content:center;
+    }
+    .contact-card{
+      display:flex;align-items:center;gap:12px;padding:14px 16px;
+      border-radius:14px;border:1px solid rgba(255,255,255,.88);
+      background:rgba(255,255,255,.75);
+      transition:background .18s,transform .18s;
+    }
+    .contact-card:hover{background:#fff;transform:translateX(2px)}
+    .contact-card:focus-visible{outline:2px solid #0ea5e9;outline-offset:2px}
+    .contact-icon{
+      flex-shrink:0;width:40px;height:40px;border-radius:12px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,rgba(224,242,254,.95),rgba(237,233,254,.9));
+      border:1px solid rgba(186,230,253,.6);
+      font-size:14px;font-weight:800;color:#0369a1;
+    }
+    .contact-card .label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b}
+    .contact-card .value{display:block;margin-top:2px;font-size:14px;font-weight:700;color:#0f172a}
+
+    /* Footer */
+    .site-footer{
+      margin-top:20px;padding:22px 0 48px;
+      border-top:1px solid rgba(148,163,184,.2);
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .site-footer p{font-size:12px;color:#64748b;margin:0}
+    .site-footer .tagline{font-weight:600;color:#475569}
+
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr;gap:24px}
+      .os-shell{max-width:400px;margin:0 auto}
+      .pillars-3,.pillars-platform,.mod-grid{grid-template-columns:1fr}
+      .intel-feature{grid-template-columns:1fr}
+      .solution-grid,.two{grid-template-columns:1fr}
+      .cta-final{grid-template-columns:1fr}
+      .cta-side{border-left:0;border-top:1px solid rgba(226,232,240,.5)}
+      .nav-links{display:none}
+    }
+    @media(max-width:560px){
+      .wrap{padding:10px 14px 0}
+      h1{font-size:1.7rem}
+      .hero-actions,.cta-actions{flex-direction:column}
+      .hero-actions .btn,.cta-actions .btn{width:100%}
+      .proof-badges{flex-direction:column}
+      .proof-badge{justify-content:flex-start}
+      .os-stage{height:268px}
+      .os-node{--r:102px}
+      .os-node-inner{width:42px;height:42px}
+      .section{padding:38px 0}
+      .cta-main,.cta-side{padding:20px 18px}
+      .nav .btn.nav-cta{padding:8px 12px;font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav glass">
+      <a class="brand" href="#top">
+        <div class="brand-mark">PM</div>
+        <div>
+          <div class="eyebrow">Padel Manager</div>
+          <strong data-i18n="brand.subtitle">Sistema operativo per circoli</strong>
+        </div>
+      </a>
+      <div class="nav-end">
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#problem" data-i18n="nav.problem">Problema</a>
+          <a href="#platform" data-i18n="nav.platform">Piattaforma</a>
+          <a href="#intelligence" data-i18n="nav.intelligence">Intelligence</a>
+          <a href="#status" data-i18n="nav.status">Stato</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="it" class="is-active">IT</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <a class="btn nav-cta" href="#contact" data-i18n="nav.contact">Contatti</a>
+      </div>
+    </header>
+
+    <section id="top" class="hero">
+      <div>
+        <div class="hero-pill eyebrow" data-i18n="hero.pill">Infrastruttura competitiva per circoli</div>
+        <h1 data-i18n="hero.title">Il sistema operativo per i circoli padel moderni.</h1>
+        <p class="lead" data-i18n="hero.lead">Operations, competizioni amatoriali e player intelligence in un unico layer — al posto di WhatsApp, Excel e app che non si parlano.</p>
+        <div class="hero-actions">
+          <a class="btn" href="mailto:bpm@padelmanageros.com" data-i18n="hero.ctaPrimary">Parla di un pilot</a>
+          <a class="btn secondary" href="#platform" data-i18n="hero.ctaSecondary">Esplora la piattaforma</a>
+        </div>
+        <div class="proof-badges" role="list">
+          <span class="proof-badge" data-i18n="hero.badge1">MVP avanzato</span>
+          <span class="proof-badge" data-i18n="hero.badge2">Fase pilot</span>
+          <span class="proof-badge" data-i18n="hero.badge3">Nato da operations reali in circolo</span>
+        </div>
+      </div>
+
+      <div class="os-shell glass">
+        <div class="os-cockpit">
+          <div class="os-toolbar">
+            <div class="os-toolbar-dots"><span></span><span></span><span></span></div>
+            <span class="os-toolbar-label" data-i18n="hero.osToolbar">Club OS · superficie live</span>
+          </div>
+          <div class="os-chips">
+            <span class="os-chip" data-i18n="hero.chip1">Live club cockpit</span>
+            <span class="os-chip violet" data-i18n="hero.chip2">AI assisted</span>
+            <span class="os-chip" data-i18n="hero.chip3">Competition runtime</span>
+            <span class="os-chip violet" data-i18n="hero.chip4">Player intelligence</span>
+          </div>
+          <div class="os-stage" aria-hidden="true">
+            <svg class="os-svg" viewBox="0 0 320 300" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="osGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity=".65"/>
+                  <stop offset="50%" stop-color="#818cf8" stop-opacity=".75"/>
+                  <stop offset="100%" stop-color="#2dd4bf" stop-opacity=".55"/>
+                </linearGradient>
+              </defs>
+              <circle cx="160" cy="150" r="112" class="os-orbit"/>
+              <circle cx="160" cy="150" r="86" class="os-orbit"/>
+              <line x1="160" y1="150" x2="160" y2="38" class="os-line"/>
+              <line x1="160" y1="150" x2="238" y2="72" class="os-line"/>
+              <line x1="160" y1="150" x2="262" y2="150" class="os-line"/>
+              <line x1="160" y1="150" x2="238" y2="228" class="os-line"/>
+              <line x1="160" y1="150" x2="160" y2="262" class="os-line"/>
+              <line x1="160" y1="150" x2="82" y2="228" class="os-line"/>
+              <line x1="160" y1="150" x2="58" y2="150" class="os-line"/>
+              <line x1="160" y1="150" x2="82" y2="72" class="os-line"/>
+              <line x1="160" y1="150" x2="198" y2="55" class="os-line" opacity=".35"/>
+              <line x1="160" y1="150" x2="122" y2="55" class="os-line" opacity=".35"/>
+            </svg>
+            <div class="os-core">
+              <div class="os-core-title" data-i18n="hero.osTitle">Padel Manager OS</div>
+              <div class="os-core-sub" data-i18n="hero.osSub">Operations · competizioni · intelligence</div>
+            </div>
+            <div class="os-node" style="--a:-90deg"><div class="os-node-inner"><span class="os-glyph">CL</span><span class="os-node-label" data-i18n="modules.club">Circolo</span></div></div>
+            <div class="os-node" style="--a:-50deg"><div class="os-node-inner"><span class="os-glyph">CA</span><span class="os-node-label" data-i18n="modules.calendar">Calendario</span></div></div>
+            <div class="os-node" style="--a:-10deg"><div class="os-node-inner"><span class="os-glyph">CP</span><span class="os-node-label" data-i18n="modules.comp">Competizioni</span></div></div>
+            <div class="os-node" style="--a:30deg"><div class="os-node-inner"><span class="os-glyph">MT</span><span class="os-node-label" data-i18n="modules.matches">Partite</span></div></div>
+            <div class="os-node" style="--a:70deg"><div class="os-node-inner"><span class="os-glyph">LS</span><span class="os-node-label" data-i18n="modules.lessons">Lezioni</span></div></div>
+            <div class="os-node" style="--a:110deg"><div class="os-node-inner"><span class="os-glyph">PL</span><span class="os-node-label" data-i18n="modules.players">Giocatori</span></div></div>
+            <div class="os-node" style="--a:150deg"><div class="os-node-inner"><span class="os-glyph">PY</span><span class="os-node-label" data-i18n="modules.pay">Pagamenti</span></div></div>
+            <div class="os-node" style="--a:190deg"><div class="os-node-inner"><span class="os-glyph">LY</span><span class="os-node-label" data-i18n="modules.loyalty">Loyalty</span></div></div>
+            <div class="os-node" style="--a:230deg"><div class="os-node-inner"><span class="os-glyph">AI</span><span class="os-node-label" data-i18n="modules.ai">AI</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem" class="section">
+      <div class="section-head">
+        <div class="eyebrow" data-i18n="problem.eyebrow">Il problema</div>
+        <h2 data-i18n="problem.title">Il circolo lavora ancora su strumenti frammentati.</h2>
+        <p class="lead" data-i18n="problem.lead">Tabelloni, iscrizioni, campi e pagamenti vivono su canali diversi. Ogni cambio richiede coordinamento manuale tra persone e file.</p>
+      </div>
+      <div class="pillars-3">
+        <article class="glass glass-interactive pillar">
+          <div class="pillar-num">01</div>
+          <h3 data-i18n="problem.p1title">WhatsApp come back-office</h3>
+          <p data-i18n="problem.p1body">Bracket, cambi campo e comunicazioni urgenti in thread che non scalano.</p>
+        </article>
+        <article class="glass glass-interactive pillar">
+          <div class="pillar-num">02</div>
+          <h3 data-i18n="problem.p2title">Excel come database</h3>
+          <p data-i18n="problem.p2body">Iscrizioni, livelli e incassi in fogli che divergono dalla realtà del campo.</p>
+        </article>
+        <article class="glass glass-interactive pillar">
+          <div class="pillar-num">03</div>
+          <h3 data-i18n="problem.p3title">App scollegate</h3>
+          <p data-i18n="problem.p3body">Booking, torneo e lezioni in silos — nessun contesto giocatore condiviso.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="solution" class="section">
+      <div class="glass solution-panel">
+        <div class="eyebrow" data-i18n="solution.eyebrow">La soluzione</div>
+        <h2 data-i18n="solution.title">Un OS unico — non un’altra app monotask.</h2>
+        <p class="lead" data-i18n="solution.lead">Padel Manager è infrastruttura operativa e competitiva: collega calendario, runtime torneo e intelligence giocatore nella stessa superficie di lavoro.</p>
+        <div class="solution-grid">
+          <div class="solution-point"><span class="check">✓</span><span data-i18n="solution.c1">Cockpit operativo e calendario unificato</span></div>
+          <div class="solution-point"><span class="check">✓</span><span data-i18n="solution.c2">Runtime competizioni con meno frizione manuale</span></div>
+          <div class="solution-point"><span class="check">✓</span><span data-i18n="solution.c3">Player intelligence per abbinamenti e planning</span></div>
+          <div class="solution-point"><span class="check">✓</span><span data-i18n="solution.c4">AI come assistente operativo nel contesto del circolo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform" class="section">
+      <div class="section-head center">
+        <div class="eyebrow" data-i18n="pillars.eyebrow">Tre pilastri</div>
+        <h2 data-i18n="pillars.title">Più di booking. Più di tabellone.</h2>
+        <p class="lead" data-i18n="pillars.lead">Tre capacità che i circoli oggi gestiscono con tool separati — qui convivono nello stesso OS.</p>
+      </div>
+      <div class="pillars-platform">
+        <article class="glass glass-interactive pillar-card">
+          <span class="tag" data-i18n="pillars.p1tag">Competizioni</span>
+          <h3 data-i18n="pillars.p1title">Tornei, leghe e circuiti</h3>
+          <p data-i18n="pillars.p1body">Tabelloni, ranking e finali in un flusso operativo — senza rifare il draw su un foglio ogni weekend.</p>
+        </article>
+        <article class="glass glass-interactive pillar-card">
+          <span class="tag violet" data-i18n="pillars.p2tag">Operations</span>
+          <h3 data-i18n="pillars.p2title">Campi, lezioni e attività</h3>
+          <p data-i18n="pillars.p2body">Un modello calendario per pianificare il circolo — non tre strumenti che non concordano mai.</p>
+        </article>
+        <article class="glass glass-interactive pillar-card">
+          <span class="tag amber" data-i18n="pillars.p3tag">Economia circolo</span>
+          <h3 data-i18n="pillars.p3title">Pagamenti e continuità</h3>
+          <p data-i18n="pillars.p3body">Incassi, pacchetti e loyalty collegati all’attività reale — non solo alla prenotazione del campo.</p>
+        </article>
+      </div>
+
+      <div class="section-head center" style="margin-top:40px">
+        <div class="eyebrow" data-i18n="modGrid.eyebrow">Moduli</div>
+        <h2 data-i18n="modGrid.title">Nove domini integrati nell’OS.</h2>
+        <p class="lead" data-i18n="modGrid.lead">Modulare nel design, unificato nell’uso quotidiano del circolo.</p>
+      </div>
+      <div class="mod-grid">
+        <div class="glass mod-card"><div class="mod-icon">CL</div><div><strong data-i18n="mod.m1">Circolo</strong><span data-i18n="mod.s1">Profilo · impostazioni</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon">CA</div><div><strong data-i18n="mod.m2">Calendario</strong><span data-i18n="mod.s2">Campi · slot</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon">MT</div><div><strong data-i18n="mod.m3">Partite</strong><span data-i18n="mod.s3">Social · open</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon">LS</div><div><strong data-i18n="mod.m4">Lezioni</strong><span data-i18n="mod.s4">Academy · clinic</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon">PL</div><div><strong data-i18n="mod.m5">Giocatori</strong><span data-i18n="mod.s5">Roster · livelli</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon">LY</div><div><strong data-i18n="mod.m6">Loyalty</strong><span data-i18n="mod.s6">Ranking · benefit</span></div></div>
+      </div>
+    </section>
+
+    <section id="intelligence" class="section">
+      <div class="intel-feature glass">
+        <div>
+          <div class="eyebrow" data-i18n="intelligence.eyebrow">Differenziante</div>
+          <h2 data-i18n="intelligence.title">Player intelligence</h2>
+          <p class="lead" style="max-width:none;margin-top:8px" data-i18n="intelligence.lead">Il layer che distingue Padel Manager da booking generico o software torneo isolato: segnali su livello, disponibilità, comportamento e preferenze per abbinamenti più equi e planning più fluido.</p>
+          <div class="intel-list">
+            <div class="intel-item"><span class="check">✓</span><span data-i18n="intelligence.b1">Match-fit per partite e eventi sociali</span></div>
+            <div class="intel-item"><span class="check">✓</span><span data-i18n="intelligence.b2">Suggerimenti lezione e clinic coerenti con il profilo</span></div>
+            <div class="intel-item"><span class="check">✓</span><span data-i18n="intelligence.b3">Contesto giocatore condiviso tra competizione e operations</span></div>
+            <div class="intel-item"><span class="check">✓</span><span data-i18n="intelligence.b4">Base dati per AI operativa — non buzzword da slide</span></div>
+          </div>
+        </div>
+        <div class="intel-stats">
+          <div class="intel-stat">
+            <div class="label" data-i18n="intelligence.stat1">Segnali</div>
+            <div class="value" data-i18n="intelligence.stat1v">Livello · disponibilità · stile</div>
+          </div>
+          <div class="intel-stat">
+            <div class="label" data-i18n="intelligence.stat2">Output</div>
+            <div class="value" data-i18n="intelligence.stat2v">Abbinamenti · planning · retention</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="business" class="section">
+      <div class="two">
+        <div class="glass panel">
+          <div class="eyebrow" data-i18n="business.eyebrow">Modello commerciale</div>
+          <h2 data-i18n="business.title">Percorsi B2B per circoli e partner.</h2>
+          <p style="margin-top:8px" data-i18n="business.lead">Struttura pensata per pilot club, gruppi multi-sede e partnership evento.</p>
+          <div class="list">
+            <div class="list-item"><span class="check">✓</span><span data-i18n="business.b1">SaaS mensile per operations di circolo</span></div>
+            <div class="list-item"><span class="check">✓</span><span data-i18n="business.b2">Licenza enterprise per gruppi e federazioni</span></div>
+            <div class="list-item"><span class="check">✓</span><span data-i18n="business.b3">Licenza evento per tornei e circuiti</span></div>
+            <div class="list-item"><span class="check">✓</span><span data-i18n="business.b4">Layer AI e analytics premium nel tempo</span></div>
+          </div>
+        </div>
+        <div class="glass panel">
+          <div class="eyebrow" data-i18n="why.eyebrow">Perché ora</div>
+          <h2 data-i18n="why.title">Il padel cresce più in fretta dell’infrastruttura dei circoli.</h2>
+          <div class="list">
+            <div class="list-item"><span class="check">✓</span><span data-i18n="why.b1">Più campi → più complessità operativa da gestire</span></div>
+            <div class="list-item"><span class="check">✓</span><span data-i18n="why.b2">Competizioni amatoriali più frequenti e più esigenti</span></div>
+            <div class="list-item"><span class="check">✓</span><span data-i18n="why.b3">Serve software specialistico — non export tabellone da booking</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="section">
+      <div class="two">
+        <div class="glass panel">
+          <div class="eyebrow" data-i18n="traction.eyebrow">Stato attuale</div>
+          <h2 data-i18n="traction.title">MVP avanzato — preparazione pilot.</h2>
+          <p style="margin-top:8px" data-i18n="traction.lead">Infrastruttura core funzionante. Focus su validazione pilot e refinement operativo — senza claim di clienti paganti o scala.</p>
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="timeline-dot">1</div>
+              <div><strong data-i18n="traction.step1">MVP avanzato</strong><span data-i18n="traction.step1d">Superficie operativa e moduli core integrati</span></div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-dot">2</div>
+              <div><strong data-i18n="traction.step2">Fase pilot</strong><span data-i18n="traction.step2d">Conversazioni con circoli selezionati</span></div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-dot">3</div>
+              <div><strong data-i18n="traction.step3">Prossimo</strong><span data-i18n="traction.step3d">Refinement da feedback operativo reale</span></div>
+            </div>
+          </div>
+          <div class="pilot-box">
+            <h4 data-i18n="traction.pilot">Conversazioni pilot in corso</h4>
+            <ul>
+              <li data-i18n="traction.p1">Monopoli Padel Club</li>
+              <li data-i18n="traction.p2">BS Padel</li>
+              <li data-i18n="traction.p3">Lion’s Padel</li>
+            </ul>
+          </div>
+        </div>
+        <div class="glass panel">
+          <div class="eyebrow" data-i18n="founder.eyebrow">Founder</div>
+          <h2 data-i18n="founder.title">Costruito dentro circoli reali.</h2>
+          <p style="margin-top:10px" data-i18n="founder.p1">Daniele Francesco Cavallo — avvocato, ex imprenditore e consulente (HR e gestione operativa), con direzione diretta di circoli padel.</p>
+          <p style="margin-top:12px" data-i18n="founder.p2">Da quel lavoro: metodologia BPM e Padel Manager come infrastruttura competitiva — non demo da pitch deck.</p>
+          <p style="margin-top:16px">
+            <a class="btn secondary" href="https://www.linkedin.com/in/danielepadelBPM" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo LinkedIn</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="glass cta-final">
+        <div class="cta-main">
+          <div class="eyebrow" data-i18n="contact.eyebrow">Prossimo passo</div>
+          <h2 data-i18n="contact.title">Parliamo di pilot, partnership o investimento early-stage.</h2>
+          <p class="lead" style="max-width:none;margin-top:10px" data-i18n="contact.lead">Cerchiamo circoli per validazione operativa, partner strategici sul territorio e conversazioni con investitori che capiscono B2B sport & venue.</p>
+          <div class="cta-audience">
+            <span class="audience-pill" data-i18n="contact.audience1">Circoli pilot</span>
+            <span class="audience-pill" data-i18n="contact.audience2">Partner strategici</span>
+            <span class="audience-pill" data-i18n="contact.audience3">Investitori early</span>
+          </div>
+          <div class="cta-actions">
+            <a class="btn" href="mailto:bpm@padelmanageros.com" data-i18n="contact.ctaPrimary">Scrivi a bpm@padelmanageros.com</a>
+            <a class="btn secondary" href="#status" data-i18n="contact.ctaSecondary">Vedi stato progetto</a>
+          </div>
+          <p class="cta-note" data-i18n="contact.note">Risposta diretta dal founder — nessun form, nessun claim di scala.</p>
+        </div>
+        <div class="cta-side">
+          <a class="contact-card" href="mailto:bpm@padelmanageros.com">
+            <div class="contact-icon">@</div>
+            <div>
+              <span class="label" data-i18n="contact.emailLabel">Email</span>
+              <span class="value">bpm@padelmanageros.com</span>
+            </div>
+          </a>
+          <a class="contact-card" href="tel:+393296737387">
+            <div class="contact-icon">☎</div>
+            <div>
+              <span class="label" data-i18n="contact.phoneLabel">Telefono</span>
+              <span class="value">+39 329 673 7387</span>
+            </div>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/danielepadelBPM" rel="noopener noreferrer">
+            <div class="contact-icon">in</div>
+            <div>
+              <span class="label" data-i18n="contact.linkedinLabel">LinkedIn</span>
+              <span class="value">danielepadelBPM</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p class="tagline" data-i18n="footer.tagline">Sistema operativo per circoli padel moderni.</p>
+      <p data-i18n="footer.rights">© Padel Manager · MVP avanzato · fase pilot</p>
+    </footer>
+  </div>
+  <script src="i18n.js" defer></script>
+</body>
+</html>

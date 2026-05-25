@@ -1,0 +1,22 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.padelmanageros.com" }],
+      "destination": "https://padelmanageros.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "padelmanageros.it" }],
+      "destination": "https://padelmanageros.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.padelmanageros.it" }],
+      "destination": "https://padelmanageros.com/:path*",
+      "permanent": true
+    }
+  ]
+}
