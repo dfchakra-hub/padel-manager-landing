@@ -199,8 +199,8 @@
       z-index:4;
     }
     .os-node-inner{
-      width:48px;height:48px;border-radius:13px;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+      width:52px;height:52px;border-radius:13px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
       border:1px solid rgba(255,255,255,.95);
       background:rgba(255,255,255,.88);
       box-shadow:0 8px 20px -12px rgba(15,23,42,.22),inset 0 1px 0 #fff;
@@ -208,11 +208,12 @@
     }
     .os-cockpit:hover .os-node-inner{transform:scale(1.05);box-shadow:0 10px 22px -10px rgba(14,116,144,.2)}
     .os-glyph{
-      width:14px;height:14px;border-radius:4px;
-      display:grid;place-items:center;
-      background:linear-gradient(135deg,rgba(224,242,254,.9),rgba(237,233,254,.9));
-      border:1px solid rgba(186,230,253,.6);
-      font-size:7px;font-weight:900;color:#0369a1;line-height:1;
+      width:24px;height:24px;border-radius:8px;
+      display:block;flex-shrink:0;
+      background:transparent;border:0;overflow:hidden;
+    }
+    .os-img,.mod-img{
+      width:100%;height:100%;object-fit:contain;display:block;
     }
     .os-node-label{font-size:6.5px;font-weight:700;color:#64748b;text-align:center;line-height:1.05;max-width:44px}
 
@@ -260,11 +261,9 @@
       border-radius:14px;
     }
     .mod-icon{
-      flex-shrink:0;width:36px;height:36px;border-radius:11px;
-      display:grid;place-items:center;
-      background:linear-gradient(145deg,rgba(240,249,255,.95),rgba(255,255,255,.9));
-      border:1px solid rgba(186,230,253,.7);
-      font-size:10px;font-weight:900;color:#0369a1;letter-spacing:.04em;
+      flex-shrink:0;width:40px;height:40px;border-radius:11px;
+      display:block;overflow:hidden;
+      background:transparent;border:0;
     }
     .mod-card strong{display:block;font-size:13px;font-weight:700;color:#0f172a}
     .mod-card span{font-size:11px;color:#64748b}
@@ -480,15 +479,15 @@
               <div class="os-core-title" data-i18n="hero.osTitle">Padel Manager OS</div>
               <div class="os-core-sub" data-i18n="hero.osSub">Operations · competizioni · intelligence</div>
             </div>
-            <div class="os-node" style="--a:-90deg"><div class="os-node-inner"><span class="os-glyph">CL</span><span class="os-node-label" data-i18n="modules.club">Circolo</span></div></div>
-            <div class="os-node" style="--a:-50deg"><div class="os-node-inner"><span class="os-glyph">CA</span><span class="os-node-label" data-i18n="modules.calendar">Calendario</span></div></div>
-            <div class="os-node" style="--a:-10deg"><div class="os-node-inner"><span class="os-glyph">CP</span><span class="os-node-label" data-i18n="modules.comp">Competizioni</span></div></div>
-            <div class="os-node" style="--a:30deg"><div class="os-node-inner"><span class="os-glyph">MT</span><span class="os-node-label" data-i18n="modules.matches">Partite</span></div></div>
-            <div class="os-node" style="--a:70deg"><div class="os-node-inner"><span class="os-glyph">LS</span><span class="os-node-label" data-i18n="modules.lessons">Lezioni</span></div></div>
-            <div class="os-node" style="--a:110deg"><div class="os-node-inner"><span class="os-glyph">PL</span><span class="os-node-label" data-i18n="modules.players">Giocatori</span></div></div>
-            <div class="os-node" style="--a:150deg"><div class="os-node-inner"><span class="os-glyph">PY</span><span class="os-node-label" data-i18n="modules.pay">Pagamenti</span></div></div>
-            <div class="os-node" style="--a:190deg"><div class="os-node-inner"><span class="os-glyph">LY</span><span class="os-node-label" data-i18n="modules.loyalty">Loyalty</span></div></div>
-            <div class="os-node" style="--a:230deg"><div class="os-node-inner"><span class="os-glyph">AI</span><span class="os-node-label" data-i18n="modules.ai">AI</span></div></div>
+            <div class="os-node" style="--a:-90deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/club.png" alt=""></span><span class="os-node-label" data-i18n="modules.club">Circolo</span></div></div>
+            <div class="os-node" style="--a:-50deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/calendar.png" alt=""></span><span class="os-node-label" data-i18n="modules.calendar">Calendario</span></div></div>
+            <div class="os-node" style="--a:-10deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/competitions.png" alt=""></span><span class="os-node-label" data-i18n="modules.comp">Competizioni</span></div></div>
+            <div class="os-node" style="--a:30deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/matches.png" alt=""></span><span class="os-node-label" data-i18n="modules.matches">Partite</span></div></div>
+            <div class="os-node" style="--a:70deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/lessons.png" alt=""></span><span class="os-node-label" data-i18n="modules.lessons">Lezioni</span></div></div>
+            <div class="os-node" style="--a:110deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/players.png" alt=""></span><span class="os-node-label" data-i18n="modules.players">Giocatori</span></div></div>
+            <div class="os-node" style="--a:150deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/wallet.png" alt=""></span><span class="os-node-label" data-i18n="modules.pay">Pagamenti</span></div></div>
+            <div class="os-node" style="--a:190deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/loyalty.png" alt=""></span><span class="os-node-label" data-i18n="modules.loyalty">Loyalty</span></div></div>
+            <div class="os-node" style="--a:230deg"><div class="os-node-inner"><span class="os-glyph"><img class="os-img" src="app-icons/assistant-ai.png" alt=""></span><span class="os-node-label" data-i18n="modules.ai">AI</span></div></div>
           </div>
         </div>
       </div>
@@ -563,12 +562,12 @@
         <p class="lead" data-i18n="modGrid.lead">Modulare nel design, unificato nell’uso quotidiano del circolo.</p>
       </div>
       <div class="mod-grid">
-        <div class="glass mod-card"><div class="mod-icon">CL</div><div><strong data-i18n="mod.m1">Circolo</strong><span data-i18n="mod.s1">Profilo · impostazioni</span></div></div>
-        <div class="glass mod-card"><div class="mod-icon">CA</div><div><strong data-i18n="mod.m2">Calendario</strong><span data-i18n="mod.s2">Campi · slot</span></div></div>
-        <div class="glass mod-card"><div class="mod-icon">MT</div><div><strong data-i18n="mod.m3">Partite</strong><span data-i18n="mod.s3">Social · open</span></div></div>
-        <div class="glass mod-card"><div class="mod-icon">LS</div><div><strong data-i18n="mod.m4">Lezioni</strong><span data-i18n="mod.s4">Academy · clinic</span></div></div>
-        <div class="glass mod-card"><div class="mod-icon">PL</div><div><strong data-i18n="mod.m5">Giocatori</strong><span data-i18n="mod.s5">Roster · livelli</span></div></div>
-        <div class="glass mod-card"><div class="mod-icon">LY</div><div><strong data-i18n="mod.m6">Loyalty</strong><span data-i18n="mod.s6">Ranking · benefit</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon"><img class="mod-img" src="app-icons/club.png" alt=""></div><div><strong data-i18n="mod.m1">Circolo</strong><span data-i18n="mod.s1">Profilo · impostazioni</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon"><img class="mod-img" src="app-icons/calendar.png" alt=""></div><div><strong data-i18n="mod.m2">Calendario</strong><span data-i18n="mod.s2">Campi · slot</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon"><img class="mod-img" src="app-icons/matches.png" alt=""></div><div><strong data-i18n="mod.m3">Partite</strong><span data-i18n="mod.s3">Social · open</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon"><img class="mod-img" src="app-icons/lessons.png" alt=""></div><div><strong data-i18n="mod.m4">Lezioni</strong><span data-i18n="mod.s4">Academy · clinic</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon"><img class="mod-img" src="app-icons/players.png" alt=""></div><div><strong data-i18n="mod.m5">Giocatori</strong><span data-i18n="mod.s5">Roster · livelli</span></div></div>
+        <div class="glass mod-card"><div class="mod-icon"><img class="mod-img" src="app-icons/loyalty.png" alt=""></div><div><strong data-i18n="mod.m6">Loyalty</strong><span data-i18n="mod.s6">Ranking · benefit</span></div></div>
       </div>
     </section>
 
@@ -658,7 +657,7 @@
           <p style="margin-top:10px" data-i18n="founder.p1">Daniele Francesco Cavallo — avvocato, ex imprenditore e consulente (HR e gestione operativa), con direzione diretta di circoli padel.</p>
           <p style="margin-top:12px" data-i18n="founder.p2">Da quel lavoro: metodologia BPM e Padel Manager come infrastruttura competitiva — non demo da pitch deck.</p>
           <p style="margin-top:16px">
-            <a class="btn secondary" href="https://www.linkedin.com/in/danielepadelBPM" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo LinkedIn</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/danielepadelBPM" target="_blank" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo LinkedIn</a>
           </p>
         </div>
       </div>
@@ -696,7 +695,7 @@
               <span class="value">+39 329 673 7387</span>
             </div>
           </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/danielepadelBPM" rel="noopener noreferrer">
+          <a class="contact-card" href="https://www.linkedin.com/in/danielepadelBPM" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon">in</div>
             <div>
               <span class="label" data-i18n="contact.linkedinLabel">LinkedIn</span>
