@@ -152,9 +152,9 @@
     }
 
     /* OS Visual */
-    .os-shell{padding:12px}
+    .os-shell{padding:12px;transform:none}
     .os-cockpit{
-      position:relative;border-radius:16px;overflow:hidden;
+      position:relative;border-radius:16px;overflow:hidden;transform:none;
       border:1px solid rgba(255,255,255,.95);
       background:linear-gradient(160deg,rgba(255,255,255,.92) 0%,rgba(241,245,249,.75) 50%,rgba(224,242,254,.4) 100%);
       box-shadow:inset 0 1px 0 #fff,0 20px 50px -30px rgba(14,116,144,.25);
@@ -176,7 +176,9 @@
       border:1px solid rgba(186,230,253,.8);background:rgba(240,249,255,.85);color:#075985;
     }
     .os-chip.violet{border-color:rgba(221,214,254,.9);background:rgba(245,243,255,.9);color:#5b21b6}
-    .os-stage{position:relative;height:300px;margin:8px auto 12px;max-width:320px}
+    .os-stage{
+      position:relative;width:100%;max-width:320px;height:320px;margin:8px auto 12px;
+    }
     .os-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
     .os-line{
       fill:none;stroke:url(#osGrad);stroke-width:1;stroke-dasharray:3 5;opacity:.5;
@@ -193,20 +195,25 @@
     .os-core-title{font-size:8px;font-weight:900;letter-spacing:.08em;line-height:1.2;color:#0f172a}
     .os-core-sub{margin-top:4px;font-size:7px;font-weight:600;line-height:1.25;color:#64748b}
     .os-node{
-      --r:120px;
+      --r:112px;
       position:absolute;left:50%;top:50%;
-      transform:rotate(var(--a)) translate(var(--r)) rotate(calc(-1 * var(--a)));
+      width:52px;height:52px;
+      transform:translate(-50%,-50%) rotate(var(--a)) translateY(calc(-1 * var(--r)));
       z-index:4;
     }
     .os-node-inner{
-      width:52px;height:52px;border-radius:13px;
+      width:100%;height:100%;border-radius:13px;
       display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
       border:1px solid rgba(255,255,255,.95);
       background:rgba(255,255,255,.88);
       box-shadow:0 8px 20px -12px rgba(15,23,42,.22),inset 0 1px 0 #fff;
+      transform:rotate(calc(-1 * var(--a)));
       transition:transform .2s ease,box-shadow .2s ease;
     }
-    .os-cockpit:hover .os-node-inner{transform:scale(1.05);box-shadow:0 10px 22px -10px rgba(14,116,144,.2)}
+    .os-cockpit:hover .os-node-inner{
+      transform:rotate(calc(-1 * var(--a))) scale(1.05);
+      box-shadow:0 10px 22px -10px rgba(14,116,144,.2);
+    }
     .os-glyph{
       width:24px;height:24px;border-radius:8px;
       display:block;flex-shrink:0;
@@ -391,9 +398,8 @@
       .hero-actions .btn,.cta-actions .btn{width:100%}
       .proof-badges{flex-direction:column}
       .proof-badge{justify-content:flex-start}
-      .os-stage{height:268px}
-      .os-node{--r:102px}
-      .os-node-inner{width:42px;height:42px}
+      .os-stage{height:280px;max-width:280px}
+      .os-node{--r:98px;width:46px;height:46px}
       .section{padding:38px 0}
       .cta-main,.cta-side{padding:20px 18px}
       .nav .btn.nav-cta{padding:8px 12px;font-size:12px}
@@ -454,7 +460,7 @@
             <span class="os-chip violet" data-i18n="hero.chip4">Player intelligence</span>
           </div>
           <div class="os-stage" aria-hidden="true">
-            <svg class="os-svg" viewBox="0 0 320 300" preserveAspectRatio="xMidYMid meet">
+            <svg class="os-svg" viewBox="0 0 320 320" preserveAspectRatio="xMidYMid meet">
               <defs>
                 <linearGradient id="osGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#38bdf8" stop-opacity=".65"/>
@@ -462,18 +468,17 @@
                   <stop offset="100%" stop-color="#2dd4bf" stop-opacity=".55"/>
                 </linearGradient>
               </defs>
-              <circle cx="160" cy="150" r="112" class="os-orbit"/>
-              <circle cx="160" cy="150" r="86" class="os-orbit"/>
-              <line x1="160" y1="150" x2="160" y2="38" class="os-line"/>
-              <line x1="160" y1="150" x2="238" y2="72" class="os-line"/>
-              <line x1="160" y1="150" x2="262" y2="150" class="os-line"/>
-              <line x1="160" y1="150" x2="238" y2="228" class="os-line"/>
-              <line x1="160" y1="150" x2="160" y2="262" class="os-line"/>
-              <line x1="160" y1="150" x2="82" y2="228" class="os-line"/>
-              <line x1="160" y1="150" x2="58" y2="150" class="os-line"/>
-              <line x1="160" y1="150" x2="82" y2="72" class="os-line"/>
-              <line x1="160" y1="150" x2="198" y2="55" class="os-line" opacity=".35"/>
-              <line x1="160" y1="150" x2="122" y2="55" class="os-line" opacity=".35"/>
+              <circle cx="160" cy="160" r="112" class="os-orbit"/>
+              <circle cx="160" cy="160" r="86" class="os-orbit"/>
+              <line x1="160" y1="160" x2="160" y2="48" class="os-line"/>
+              <line x1="160" y1="160" x2="232" y2="74" class="os-line"/>
+              <line x1="160" y1="160" x2="270" y2="141" class="os-line"/>
+              <line x1="160" y1="160" x2="257" y2="216" class="os-line"/>
+              <line x1="160" y1="160" x2="198" y2="265" class="os-line"/>
+              <line x1="160" y1="160" x2="122" y2="265" class="os-line"/>
+              <line x1="160" y1="160" x2="63" y2="216" class="os-line"/>
+              <line x1="160" y1="160" x2="50" y2="141" class="os-line"/>
+              <line x1="160" y1="160" x2="88" y2="74" class="os-line"/>
             </svg>
             <div class="os-core">
               <div class="os-core-title" data-i18n="hero.osTitle">Padel Manager OS</div>
