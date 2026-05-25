@@ -5,8 +5,10 @@ HTML/CSS/JS statico — nessun framework, nessuna build.
 
 ## Contenuto
 
-- `index.html` — pagina, stili inline, visual OS cockpit
+- `index.html` — landing visuale SaaS (hero + sezioni con capture)
 - `i18n.js` — copy IT/EN (default **italiano**)
+- `assets/captures/` — screenshot prodotto (problem, solution, intelligence, …)
+- `app-icons/` — icone moduli (PNG ottimizzati)
 - `vercel.json` — redirect `www` / `.it` → apex
 
 ## Sviluppo locale
