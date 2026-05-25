@@ -18,19 +18,23 @@ python3 -m http.server 8080
 
 Apri http://localhost:8080 — verifica switch **IT/EN**, layout mobile e link contatti.
 
+## Repository Git
+
+**https://github.com/dfchakra-hub/padel-manager-landing**
+
+Push su `main` → deploy automatico su Vercel (progetto `padel-manager-landing`).
+
 ## Deploy (Vercel)
 
-Progetto: `padel-manager-landing` → **https://padelmanageros.com**
+Produzione: **https://padelmanageros.com**
 
-La cartella è collegata al progetto Vercel (`.vercel/project.json`). Il deploy ufficiale va fatto **da qui**, non dal monorepo del gestionale:
+| Metodo | Comando |
+|--------|---------|
+| **Automatico** | `git push origin main` |
+| **Manuale** | `cd /Users/daniele/padel-manager-landing && vercel --prod --yes` |
 
-```bash
-cd /Users/daniele/padel-manager-landing
-vercel link --project padel-manager-landing --yes   # solo la prima volta
-vercel --prod --yes
-```
-
-Impostazioni progetto: **Framework** Other, **Root Directory** vuoto (`.`). Il repository Git del gestionale è **scollegato** da questo progetto per evitare deploy accidentali dal monorepo.
+Impostazioni Vercel: **Framework** Other, **Root Directory** `.` (root del repo).  
+Il monorepo `padel-manager-api` **non** è collegato a questo progetto.
 
 ## Contatti (non modificare senza richiesta esplicita)
 
