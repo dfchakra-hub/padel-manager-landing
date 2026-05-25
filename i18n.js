@@ -162,7 +162,7 @@
         emailLabel: "Email",
         phoneLabel: "Telefono",
         linkedinLabel: "LinkedIn",
-        note: "Risposta diretta — nessun form, nessun claim di scala.",
+        note: "Risposta diretta, senza form e senza affermazioni non validate.",
       },
       alt: {
         hero: "Dashboard operativa Padel Manager",
@@ -340,7 +340,7 @@
         emailLabel: "Email",
         phoneLabel: "Phone",
         linkedinLabel: "LinkedIn",
-        note: "Direct reply — no form, no scale claims.",
+        note: "Direct reply, no forms and no unvalidated scale claims.",
       },
       alt: {
         hero: "Padel Manager operational dashboard",

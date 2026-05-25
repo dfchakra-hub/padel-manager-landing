@@ -99,7 +99,7 @@
     .domain-icon img{width:100%;height:100%;object-fit:contain}
     .domain-item strong{font-size:12px;color:#0f172a}
     .ai-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}
     .panel{padding:22px 24px}
     .list{display:grid;gap:8px;margin-top:12px}
     .list-item{display:flex;gap:8px;padding:10px 12px;border-radius:11px;border:1px solid rgba(255,255,255,.75);background:rgba(255,255,255,.5);font-size:13px;font-weight:600;color:#334155}
@@ -114,29 +114,22 @@
     .pilot-box ul{margin:0;padding:0;list-style:none;display:grid;gap:5px}
     .pilot-box li{font-size:13px;font-weight:600;color:#334155;display:flex;gap:6px;align-items:center}
     .pilot-box li::before{content:"";width:5px;height:5px;border-radius:999px;background:#22c55e}
-    .founder-block{
-      margin-top:12px;padding:24px 28px;
-      background:linear-gradient(145deg,rgba(255,255,255,.9) 0%,rgba(240,249,255,.55) 45%,rgba(245,243,255,.42) 100%);
-      border:1px solid rgba(255,255,255,.8);
-      box-shadow:0 14px 40px -24px rgba(14,116,144,.18),inset 0 1px 0 rgba(255,255,255,.95);
-    }
-    .founder-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:22px 28px;align-items:start}
-    .founder-copy{max-width:720px}
-    .founder-copy .lead{margin-top:8px;font-weight:500}
-    .founder-copy .founder-p{margin-top:12px;font-size:.94rem;line-height:1.62}
-    .founder-aside{display:flex;flex-direction:column;gap:12px}
-    .founder-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .founder-stat{
-      padding:11px 13px;border-radius:12px;
+    .panel--founder{display:flex;flex-direction:column;height:100%}
+    .panel--founder h2{font-size:clamp(1.15rem,1.8vw,1.45rem)}
+    .panel--founder .lead{margin-top:6px;font-size:.92rem;line-height:1.55}
+    .panel--founder .founder-p{margin-top:8px;font-size:.88rem;line-height:1.55;color:#475569}
+    .panel--founder .founder-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:auto;padding-top:12px}
+    .panel--founder .founder-stat{
+      padding:9px 10px;border-radius:10px;
       border:1px solid rgba(255,255,255,.88);
       background:rgba(255,255,255,.72);
-      font-size:12px;font-weight:700;color:#0f172a;line-height:1.35;
+      font-size:11px;font-weight:700;color:#0f172a;line-height:1.3;
     }
-    .founder-stat::before{
-      content:"";display:block;width:18px;height:3px;border-radius:999px;margin-bottom:7px;
+    .panel--founder .founder-stat::before{
+      content:"";display:block;width:16px;height:2px;border-radius:999px;margin-bottom:5px;
       background:linear-gradient(90deg,#38bdf8,#818cf8);
     }
-    .founder-link{margin-top:4px}
+    .panel--founder .founder-link{margin-top:10px}
     .cta-final{display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden}
     .cta-main{padding:28px}
     .cta-side{padding:20px;background:linear-gradient(165deg,rgba(240,249,255,.75),rgba(245,243,255,.55));border-left:1px solid rgba(255,255,255,.7);display:flex;flex-direction:column;gap:8px;justify-content:center}
@@ -157,9 +150,7 @@
       .nav-links{display:none}
       .domains-grid{grid-template-columns:repeat(2,1fr)}
       .cta-side{border-left:0;border-top:1px solid rgba(226,232,240,.5)}
-      .founder-inner{grid-template-columns:1fr}
-      .founder-copy{max-width:none}
-      .founder-stat-grid{grid-template-columns:1fr 1fr}
+      .panel--founder .founder-stat-grid{grid-template-columns:1fr 1fr}
     }
     @media(max-width:560px){
       .wrap{padding:10px 14px 0}
@@ -254,7 +245,7 @@
         </div>
         <div class="split-visual">
           <div class="visual visual--crop-safe">
-            <img src="assets/captures/solution-desktop.png" width="1400" height="900" alt="Regia live del circolo con calendario e attività" data-i18n-alt="alt.solution" loading="lazy" />
+            <img src="assets/captures/runtime.png" width="1400" height="900" alt="Gestione live delle competizioni" data-i18n-alt="alt.runtime" loading="lazy" />
           </div>
         </div>
       </div>
@@ -388,26 +379,20 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div id="founder" class="founder-block glass">
-        <div class="founder-inner">
-          <div class="founder-copy">
-            <div class="eyebrow" data-i18n="founder.eyebrow">Esperienza reale sul campo</div>
-            <h2 data-i18n="founder.title">Nato dentro la gestione quotidiana dei circoli.</h2>
-            <p class="lead" data-i18n="founder.lead">Padel Manager non nasce da un pitch deck o da un’idea teorica, ma da anni di esperienza diretta nel mondo del padel: gestione operativa di circoli, organizzazione competizioni, attività in campo e coordinamento quotidiano di giocatori, staff e calendario.</p>
-            <p class="founder-p" data-i18n="founder.p1">L’esperienza maturata tra direzione di club, attività sportiva e sviluppo di metodologie organizzative ha portato alla creazione del modello BPM (Business Padel Management): una visione operativa pensata specificamente per le esigenze reali dei centri padel moderni.</p>
-            <p class="founder-p" data-i18n="founder.p2">Da questa esperienza nasce Padel Manager: un sistema operativo competitivo progettato per semplificare operatività, competizioni, pianificazione e relazione con i giocatori in un’unica piattaforma.</p>
+        <div id="founder" class="glass panel panel--founder">
+          <div class="eyebrow" data-i18n="founder.eyebrow">Esperienza reale sul campo</div>
+          <h2 data-i18n="founder.title">Nato dentro la gestione quotidiana dei circoli.</h2>
+          <p class="lead" data-i18n="founder.lead">Padel Manager non nasce da un pitch deck o da un’idea teorica, ma da anni di esperienza diretta nel mondo del padel: gestione operativa di circoli, organizzazione competizioni, attività in campo e coordinamento quotidiano di giocatori, staff e calendario.</p>
+          <p class="founder-p" data-i18n="founder.p1">L’esperienza maturata tra direzione di club, attività sportiva e sviluppo di metodologie organizzative ha portato alla creazione del modello BPM (Business Padel Management): una visione operativa pensata specificamente per le esigenze reali dei centri padel moderni.</p>
+          <p class="founder-p" data-i18n="founder.p2">Da questa esperienza nasce Padel Manager: un sistema operativo competitivo progettato per semplificare operatività, competizioni, pianificazione e relazione con i giocatori in un’unica piattaforma.</p>
+          <div class="founder-stat-grid">
+            <div class="founder-stat" data-i18n="founder.b1">5+ anni nel settore padel</div>
+            <div class="founder-stat" data-i18n="founder.b2">Direzione operativa club</div>
+            <div class="founder-stat" data-i18n="founder.b3">Metodologia BPM</div>
+            <div class="founder-stat" data-i18n="founder.b4">Esperienza reale sul campo</div>
           </div>
-          <div class="founder-aside">
-            <div class="founder-stat-grid">
-              <div class="founder-stat" data-i18n="founder.b1">5+ anni nel settore padel</div>
-              <div class="founder-stat" data-i18n="founder.b2">Direzione operativa club</div>
-              <div class="founder-stat" data-i18n="founder.b3">Metodologia BPM</div>
-              <div class="founder-stat" data-i18n="founder.b4">Esperienza reale sul campo</div>
-            </div>
-            <div class="founder-link">
-              <a class="btn secondary" href="https://www.linkedin.com/in/danielepadelBPM" target="_blank" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo professionale</a>
-            </div>
+          <div class="founder-link">
+            <a class="btn secondary" href="https://linkedin.com/in/danielepadelbpm" target="_blank" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo professionale</a>
           </div>
         </div>
       </div>
@@ -422,13 +407,13 @@
           <div class="cta-audience">
             <span class="audience-pill" data-i18n="contact.audience1">Circoli pilota</span>
             <span class="audience-pill" data-i18n="contact.audience2">Partner strategici</span>
-            <span class="audience-pill" data-i18n="contact.audience3">Investitori early</span>
+            <span class="audience-pill" data-i18n="contact.audience3">Investitori in fase iniziale</span>
           </div>
           <div class="cta-actions">
             <a class="btn" href="mailto:bpm@padelmanageros.com" data-i18n="contact.ctaPrimary">Scrivi a bpm@padelmanageros.com</a>
             <a class="btn secondary" href="#status" data-i18n="contact.ctaSecondary">Vedi stato progetto</a>
           </div>
-          <p class="cta-note" data-i18n="contact.note">Risposta diretta dal founder — nessun form, nessun claim di scala.</p>
+          <p class="cta-note" data-i18n="contact.note">Risposta diretta, senza form e senza affermazioni non validate.</p>
         </div>
         <div class="cta-side">
           <a class="contact-card" href="mailto:bpm@padelmanageros.com">
@@ -439,9 +424,9 @@
             <div class="contact-icon">☎</div>
             <div><span class="label" data-i18n="contact.phoneLabel">Telefono</span><span class="value">+39 329 673 7387</span></div>
           </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/danielepadelBPM" target="_blank" rel="noopener noreferrer">
+          <a class="contact-card" href="https://linkedin.com/in/danielepadelbpm" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon">in</div>
-            <div><span class="label" data-i18n="contact.linkedinLabel">LinkedIn</span><span class="value">danielepadelBPM</span></div>
+            <div><span class="label" data-i18n="contact.linkedinLabel">LinkedIn</span><span class="value">danielepadelbpm</span></div>
           </a>
         </div>
       </div>
