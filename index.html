@@ -73,8 +73,10 @@
     }
     .visual--hero{padding:16px 20px}
     .visual--hero img{max-height:min(70vh,620px)}
+    .visual--crop-safe{overflow:hidden;max-height:min(58vh,500px)}
+    .visual--crop-safe img{object-position:center 8%;transform:scale(1.06);transform-origin:center top}
     .visual--mobile{padding:18px 24px;max-width:380px;margin:0 auto}
-    .visual--mobile img{max-height:min(72vh,640px)}
+    .visual--mobile img{max-height:min(65vh,560px)}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
     .split-visual{display:flex;align-items:center;justify-content:center;width:100%;min-width:0}
     .split--reverse .split-visual{order:2}
@@ -162,7 +164,8 @@
     @media(max-width:560px){
       .wrap{padding:10px 14px 0}
       .hero-actions,.cta-actions{flex-direction:column}
-      .hero-actions .btn,.cta-actions .btn{width:100%}
+      .hero-actions .btn,.cta-actions .btn,.nav-end .btn{width:100%}
+      .feature-block .visual img{max-height:min(70vh,520px)}
       .domains-grid{grid-template-columns:1fr}
       .section{padding:28px 0}
       .visual{padding:10px 12px}
@@ -187,8 +190,8 @@
           <a href="#status" data-i18n="nav.status">Stato</a>
         </nav>
         <div class="lang-switch" role="group" aria-label="Language">
-          <button type="button" data-lang="it" class="is-active">IT</button>
-          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="it" class="is-active" aria-pressed="true">IT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
         <a class="btn" href="#contact" data-i18n="nav.contact">Contatti</a>
       </div>
@@ -200,7 +203,8 @@
         <h1 data-i18n="hero.title">Il sistema operativo per i circoli padel moderni.</h1>
         <p class="lead" data-i18n="hero.lead">Padel Manager unifica operatività del circolo, competizioni amatoriali, calendario, giocatori, pagamenti e intelligenza AI in un’unica piattaforma.</p>
         <div class="hero-actions">
-          <a class="btn" href="#platform" data-i18n="hero.ctaSecondary">Esplora la piattaforma</a>
+          <a class="btn" href="mailto:bpm@padelmanageros.com" data-i18n="hero.ctaPrimary">Parla di un pilota</a>
+          <a class="btn secondary" href="#platform" data-i18n="hero.ctaSecondary">Esplora la piattaforma</a>
         </div>
         <div class="proof-badges">
           <span class="proof-badge" data-i18n="hero.badge1">MVP avanzato</span>
@@ -209,8 +213,8 @@
         </div>
         <p class="hero-aside" data-i18n="hero.aside">Non è solo prenotazione campi o tabellone: è il sistema operativo competitivo del circolo.</p>
       </div>
-      <div class="visual visual--hero">
-        <img src="assets/captures/player-intelligence.png" width="1400" height="900" alt="" />
+      <div class="visual visual--hero visual--crop-safe">
+        <img src="assets/captures/solution-desktop.png" width="1400" height="900" alt="Dashboard operativa Padel Manager" data-i18n-alt="alt.hero" />
       </div>
     </section>
 
@@ -218,7 +222,7 @@
       <div class="split split--reverse">
         <div class="split-visual">
           <div class="visual">
-            <img src="assets/captures/problem.png" width="1400" height="900" alt="" loading="lazy" />
+            <img src="assets/captures/problem.png" width="1400" height="900" alt="Strumenti frammentati nella gestione di un circolo padel" data-i18n-alt="alt.problem" loading="lazy" />
           </div>
         </div>
         <div class="split-copy">
@@ -249,8 +253,8 @@
           </div>
         </div>
         <div class="split-visual">
-          <div class="visual">
-            <img src="assets/captures/solution-desktop.png" width="1400" height="900" alt="" loading="lazy" />
+          <div class="visual visual--crop-safe">
+            <img src="assets/captures/solution-desktop.png" width="1400" height="900" alt="Regia live del circolo con calendario e attività" data-i18n-alt="alt.solution" loading="lazy" />
           </div>
         </div>
       </div>
@@ -258,14 +262,14 @@
 
     <section id="intelligence" class="section section--feature feature-block">
       <div class="section-head" style="max-width:42rem;margin-bottom:14px">
-        <div class="eyebrow" data-i18n="intelligence.eyebrow">Differenziante</div>
+        <div class="eyebrow" data-i18n="intelligence.eyebrow">Intelligenza sui giocatori</div>
         <h2 data-i18n="intelligence.title">Il sistema capisce chi dovrebbe giocare insieme.</h2>
         <p class="lead" style="margin-top:8px" data-i18n="intelligence.lead">Disponibilità, livello, preferenze e comportamento diventano segnali utili per suggerire partite, lezioni, partner torneo e riempimento slot.</p>
       </div>
       <div class="visual">
-        <img src="assets/captures/player-intelligence.png" width="1400" height="900" alt="" loading="lazy" />
+        <img src="assets/captures/player-intelligence.png" width="1400" height="900" alt="Motore di compatibilità giocatori" data-i18n-alt="alt.intelligence" loading="lazy" />
       </div>
-      <p class="caption" data-i18n="intelligence.note">La schermata mostra il motore di compatibilità: input giocatore, segnali e output operativi per il circolo.</p>
+      <p class="caption" data-i18n="intelligence.note">La schermata mostra il motore di compatibilità: input giocatore, segnali e output per il circolo.</p>
       <div class="benefit-chips" style="margin-top:14px">
         <span class="chip" data-i18n="intelligence.b1">Compatibilità per partite</span>
         <span class="chip" data-i18n="intelligence.b2">Suggerimenti per lezioni e gruppi</span>
@@ -280,7 +284,7 @@
       <h2 data-i18n="domains.title">Un solo OS, nove domini operativi.</h2>
       <p class="lead" style="margin-top:8px" data-i18n="domains.lead">Moduli integrati per la gestione quotidiana e competitiva del circolo.</p>
       <div class="visual" style="margin-top:14px">
-        <img src="assets/captures/os-domains.png" width="1400" height="900" alt="" loading="lazy" />
+        <img src="assets/captures/os-domains.png" width="1400" height="900" alt="Nove domini operativi di Padel Manager" data-i18n-alt="alt.domains" loading="lazy" />
       </div>
       <div class="domains-grid">
         <div class="domain-item"><div class="domain-icon"><img src="app-icons/club.png" alt="" loading="lazy"></div><strong data-i18n="domains.m1">Circolo</strong></div>
@@ -307,8 +311,8 @@
         <span class="chip" data-i18n="ai.d5">Notifiche</span>
       </div>
       <div class="ai-duo">
-        <div class="visual"><img src="assets/captures/elite-ai.png" width="1400" height="900" alt="" loading="lazy" /></div>
-        <div class="visual"><img src="assets/captures/runtime.png" width="1400" height="900" alt="" loading="lazy" /></div>
+        <div class="visual"><img src="assets/captures/elite-ai.png" width="1400" height="900" alt="Assistente AI operativo per competizioni" data-i18n-alt="alt.ai" loading="lazy" /></div>
+        <div class="visual"><img src="assets/captures/runtime.png" width="1400" height="900" alt="Gestione live delle competizioni" data-i18n-alt="alt.runtime" loading="lazy" /></div>
       </div>
     </section>
 
@@ -320,7 +324,7 @@
           <p class="lead" style="margin-top:8px" data-i18n="vision.lead">Padel Manager nasce per diventare il livello operativo e competitivo dei circoli padel moderni.</p>
         </div>
         <div class="split-visual">
-          <div class="visual"><img src="assets/captures/vision.png" width="1400" height="900" alt="" loading="lazy" /></div>
+          <div class="visual"><img src="assets/captures/vision.png" width="1400" height="900" alt="Ecosistema competitivo connesso" data-i18n-alt="alt.vision" loading="lazy" /></div>
         </div>
       </div>
     </section>
@@ -329,7 +333,7 @@
       <div class="split split--reverse">
         <div class="split-visual">
           <div class="visual visual--mobile">
-            <img src="assets/captures/mobile-os.png" width="1400" height="900" alt="" loading="lazy" />
+            <img src="assets/captures/mobile-os.png" width="1400" height="900" alt="Esperienza mobile del circolo" data-i18n-alt="alt.mobile" loading="lazy" />
           </div>
         </div>
         <div class="split-copy">
@@ -402,7 +406,7 @@
               <div class="founder-stat" data-i18n="founder.b4">Esperienza reale sul campo</div>
             </div>
             <div class="founder-link">
-              <a class="btn secondary" href="https://linkedin.com/in/danielepadelbpm" target="_blank" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo professionale</a>
+              <a class="btn secondary" href="https://www.linkedin.com/in/danielepadelBPM" target="_blank" rel="noopener noreferrer" data-i18n="founder.linkedin">Profilo professionale</a>
             </div>
           </div>
         </div>
@@ -435,9 +439,9 @@
             <div class="contact-icon">☎</div>
             <div><span class="label" data-i18n="contact.phoneLabel">Telefono</span><span class="value">+39 329 673 7387</span></div>
           </a>
-          <a class="contact-card" href="https://linkedin.com/in/danielepadelbpm" target="_blank" rel="noopener noreferrer">
+          <a class="contact-card" href="https://www.linkedin.com/in/danielepadelBPM" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon">in</div>
-            <div><span class="label" data-i18n="contact.linkedinLabel">LinkedIn</span><span class="value">danielepadelbpm</span></div>
+            <div><span class="label" data-i18n="contact.linkedinLabel">LinkedIn</span><span class="value">danielepadelBPM</span></div>
           </a>
         </div>
       </div>

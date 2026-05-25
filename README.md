@@ -44,7 +44,7 @@ Il monorepo `padel-manager-api` **non** è collegato a questo progetto.
 |--------|--------|
 | Email | bpm@padelmanageros.com |
 | Telefono | +39 329 673 7387 |
-| LinkedIn | https://linkedin.com/in/danielepadelbpm |
+| LinkedIn | https://www.linkedin.com/in/danielepadelBPM |
 
 ## Vincoli editoriali
 

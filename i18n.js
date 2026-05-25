@@ -54,12 +54,12 @@
         c3: "Operatività assistita dall’AI",
       },
       intelligence: {
-        eyebrow: "Differenziante",
+        eyebrow: "Intelligenza sui giocatori",
         title: "Il sistema capisce chi dovrebbe giocare insieme.",
         lead:
           "Disponibilità, livello, preferenze e comportamento diventano segnali utili per suggerire partite, lezioni, partner torneo e riempimento slot.",
         note:
-          "La schermata mostra il motore di compatibilità: input giocatore, segnali e output operativi per il circolo.",
+          "La schermata mostra il motore di compatibilità: input giocatore, segnali e output per il circolo.",
         b1: "Compatibilità per partite",
         b2: "Suggerimenti per lezioni e gruppi",
         b3: "Partner torneo",
@@ -156,13 +156,24 @@
           "Cerchiamo circoli per validazione operativa, partner strategici e investitori che capiscono SaaS sport & venue.",
         audience1: "Circoli pilota",
         audience2: "Partner strategici",
-        audience3: "Investitori early",
+        audience3: "Investitori in fase iniziale",
         ctaPrimary: "Scrivi a bpm@padelmanageros.com",
         ctaSecondary: "Vedi stato progetto",
         emailLabel: "Email",
         phoneLabel: "Telefono",
         linkedinLabel: "LinkedIn",
-        note: "Risposta diretta dal founder — nessun form, nessun claim di scala.",
+        note: "Risposta diretta — nessun form, nessun claim di scala.",
+      },
+      alt: {
+        hero: "Dashboard operativa Padel Manager",
+        problem: "Strumenti frammentati nella gestione di un circolo padel",
+        solution: "Regia live del circolo con calendario e attività",
+        intelligence: "Motore di compatibilità giocatori",
+        domains: "Nove domini operativi di Padel Manager",
+        ai: "Assistente AI operativo per competizioni",
+        runtime: "Gestione live delle competizioni",
+        vision: "Ecosistema competitivo connesso",
+        mobile: "Esperienza mobile del circolo",
       },
       footer: {
         tagline: "Sistema operativo per circoli padel moderni.",
@@ -329,7 +340,18 @@
         emailLabel: "Email",
         phoneLabel: "Phone",
         linkedinLabel: "LinkedIn",
-        note: "Direct reply from the founder — no form, no scale claims.",
+        note: "Direct reply — no form, no scale claims.",
+      },
+      alt: {
+        hero: "Padel Manager operational dashboard",
+        problem: "Fragmented tools in padel club management",
+        solution: "Live club orchestration with calendar and activities",
+        intelligence: "Player compatibility engine",
+        domains: "Nine Padel Manager operational domains",
+        ai: "Operational AI assistant for competitions",
+        runtime: "Live competition management",
+        vision: "Connected competitive ecosystem",
+        mobile: "Club mobile experience",
       },
       footer: {
         tagline: "Operating system for modern padel clubs.",
@@ -362,6 +384,11 @@
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const v = get(pack, el.getAttribute("data-i18n"));
       if (v != null) el.textContent = v;
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      const v = get(pack, el.getAttribute("data-i18n-alt"));
+      if (v != null) el.setAttribute("alt", v);
     });
 
     document.querySelectorAll(".lang-switch button").forEach((btn) => {
