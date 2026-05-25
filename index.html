@@ -59,10 +59,24 @@
     .proof-badge{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.75);font-size:10px;font-weight:700;color:#334155}
     .proof-badge::before{content:"";width:5px;height:5px;border-radius:999px;background:linear-gradient(135deg,#22d3ee,#6366f1)}
     .hero-aside{margin-top:14px;font-size:12px;font-weight:600;color:#64748b;max-width:28rem}
-    .visual{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.85);box-shadow:0 20px 50px -28px rgba(14,116,144,.28),inset 0 1px 0 rgba(255,255,255,.9);background:rgba(255,255,255,.5);line-height:0}
-    .visual img{width:100%;height:auto;display:block;max-height:520px;object-fit:cover;object-position:center top}
-    .visual--hero img{max-height:none;object-fit:contain;object-position:center}
+    .visual{
+      display:flex;align-items:center;justify-content:center;
+      border-radius:16px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.85);
+      box-shadow:0 20px 50px -28px rgba(14,116,144,.28),inset 0 1px 0 rgba(255,255,255,.95);
+      background:linear-gradient(180deg,rgba(255,255,255,.82) 0%,rgba(248,250,252,.72) 100%);
+      padding:14px 18px;line-height:0;
+    }
+    .visual img{
+      width:100%;max-width:100%;height:auto;display:block;margin:0 auto;
+      object-fit:contain;object-position:center center;
+    }
+    .visual--hero{padding:16px 20px}
+    .visual--hero img{max-height:min(70vh,620px)}
+    .visual--mobile{padding:18px 24px;max-width:380px;margin:0 auto}
+    .visual--mobile img{max-height:min(72vh,640px)}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .split-visual{display:flex;align-items:center;justify-content:center;width:100%;min-width:0}
     .split--reverse .split-visual{order:2}
     .split--reverse .split-copy{order:1}
     .benefits{display:grid;gap:8px;margin-top:16px}
@@ -71,7 +85,11 @@
     .benefit-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
     .chip{padding:6px 11px;border-radius:999px;border:1px solid rgba(186,230,253,.8);background:rgba(240,249,255,.85);font-size:11px;font-weight:700;color:#075985}
     .section--feature{padding:56px 0}
-    .feature-block .visual img{max-height:640px;object-fit:contain}
+    .feature-block .visual{padding:18px 22px}
+    .feature-block .visual img{max-height:none}
+    .split-visual .visual{width:100%}
+    .ai-duo .visual{align-items:center}
+    .ai-duo .visual img{max-height:min(55vh,520px)}
     .caption{margin-top:10px;font-size:12px;color:#64748b;font-weight:500}
     .domains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
     .domain-item{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.8);background:rgba(255,255,255,.6)}
@@ -121,6 +139,9 @@
       .hero-actions .btn,.cta-actions .btn{width:100%}
       .domains-grid{grid-template-columns:1fr}
       .section{padding:36px 0}
+      .visual{padding:10px 12px}
+      .visual--hero img{max-height:none}
+      .ai-duo .visual img{max-height:none}
     }
   </style>
 </head>
@@ -282,7 +303,7 @@
     <section id="mobile" class="section section--tight">
       <div class="split split--reverse">
         <div class="split-visual">
-          <div class="visual" style="max-width:360px;margin:0 auto">
+          <div class="visual visual--mobile">
             <img src="assets/captures/mobile-os.png" width="1400" height="900" alt="" loading="lazy" />
           </div>
         </div>
