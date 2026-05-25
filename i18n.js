@@ -358,6 +358,184 @@
         rights: "© Padel Manager · Advanced MVP · pilot phase",
       },
     },
+    es: {
+      meta: {
+        title: "Padel Manager · Sistema operativo para clubes de pádel",
+        description:
+          "Padel Manager unifica operativa del club, competiciones, calendario, jugadores, pagos e IA en un único sistema operativo para clubes de pádel.",
+        ogTitle: "Padel Manager · Sistema operativo para clubes de pádel",
+        ogDescription:
+          "Padel Manager unifica operativa del club, competiciones, calendario, jugadores, pagos e IA en un único sistema operativo para clubes de pádel.",
+      },
+      brand: { name: "Padel Manager", subtitle: "Sistema operativo para clubes" },
+      nav: {
+        problem: "Problema",
+        solution: "Solución",
+        intelligence: "Inteligencia",
+        platform: "Plataforma",
+        status: "Estado",
+        contact: "Contacto",
+      },
+      hero: {
+        pill: "Infraestructura competitiva para clubes de pádel",
+        title: "El sistema operativo para clubes de pádel modernos.",
+        lead:
+          "Padel Manager unifica la operativa del club, competiciones amateur, calendario, jugadores, pagos e inteligencia IA en una sola plataforma.",
+        ctaPrimary: "Hablar de un piloto",
+        ctaSecondary: "Explorar la plataforma",
+        badge1: "MVP avanzado",
+        badge2: "Fase piloto",
+        badge3: "Nacido de operativa real en club",
+        aside:
+          "No es solo reserva de pistas o cuadro: es el sistema operativo competitivo del club.",
+      },
+      problem: {
+        eyebrow: "El problema",
+        title: "El club sigue trabajando con herramientas fragmentadas.",
+        lead:
+          "Competiciones, inscripciones, pistas, pagos y comunicaciones viven en canales distintos. Cada cambio exige coordinación manual.",
+        b1: "WhatsApp como secretaría operativa",
+        b2: "Excel como base de datos",
+        b3: "Apps desconectadas",
+        b4: "Sin gestión en vivo",
+        b5: "Coordinación manual constante",
+      },
+      solution: {
+        eyebrow: "La solución",
+        title: "Del caos operativo a una dirección en vivo del club.",
+        lead:
+          "Calendario, pistas, actividades, competiciones y notificaciones en una sola superficie operativa.",
+        c1: "Calendario único",
+        c2: "Competiciones sincronizadas",
+        c3: "Operativa asistida por IA",
+      },
+      intelligence: {
+        eyebrow: "Inteligencia sobre jugadores",
+        title: "El sistema entiende quién debería jugar junto.",
+        lead:
+          "Disponibilidad, nivel, preferencias y comportamiento se convierten en señales útiles para sugerir partidos, clases, parejas de torneo y ocupación de slots.",
+        note:
+          "La pantalla muestra el motor de compatibilidad: inputs del jugador, señales y outputs para el club.",
+        b1: "Compatibilidad para partidos",
+        b2: "Sugerencias para clases y grupos",
+        b3: "Parejas de torneo",
+        b4: "Ocupación de slots",
+        b5: "Contexto de jugador compartido",
+      },
+      domains: {
+        eyebrow: "Plataforma",
+        title: "Un solo OS, nueve dominios operativos.",
+        lead: "Módulos integrados para la gestión diaria y competitiva del club.",
+        m1: "Club",
+        m2: "Calendario",
+        m3: "Competiciones",
+        m4: "Partidos",
+        m5: "Clases",
+        m6: "Jugadores",
+        m7: "Pagos",
+        m8: "Loyalty",
+        m9: "IA",
+      },
+      ai: {
+        eyebrow: "IA operativa",
+        title: "IA operativa, no solo chatbot.",
+        lead:
+          "El asistente trabaja en el contexto del club: detecta conflictos, replanifica, prepara notificaciones y protege el flujo competitivo.",
+        d1: "Competiciones",
+        d2: "Planificación",
+        d3: "Calendario",
+        d4: "Jugadores",
+        d5: "Notificaciones",
+      },
+      vision: {
+        eyebrow: "Visión",
+        title: "Del software de club a un ecosistema competitivo conectado.",
+        lead:
+          "Padel Manager nace para convertirse en la capa operativa y competitiva de los clubes de pádel modernos.",
+      },
+      mobile: {
+        eyebrow: "Experiencia móvil",
+        title: "Todo lo que el club necesita, en una sola experiencia.",
+        lead:
+          "Competiciones, pistas, pagos, ranking, academy e IA en una superficie móvil coherente.",
+      },
+      business: {
+        eyebrow: "Modelo comercial",
+        title: "Recorridos B2B para clubes y partners.",
+        b1: "SaaS mensual para operativa de club",
+        b2: "Licencia enterprise para grupos y federaciones",
+        b3: "Licencia evento para torneos y circuitos",
+        b4: "Capas premium de IA y analytics en el tiempo",
+      },
+      why: {
+        eyebrow: "Por qué ahora",
+        title: "El pádel crece más rápido que la infraestructura de los clubes.",
+        b1: "Más pistas → más complejidad operativa",
+        b2: "Competiciones amateur más frecuentes y exigentes",
+        b3: "Hace falta software especializado, no exportar cuadros desde reservas",
+      },
+      traction: {
+        eyebrow: "Estado actual",
+        title: "MVP avanzado — preparación piloto.",
+        lead:
+          "Infraestructura core funcional. Foco en validación piloto — sin claims de clientes de pago ni escala.",
+        step1: "MVP avanzado",
+        step1d: "Superficie operativa y módulos core integrados",
+        step2: "Fase piloto",
+        step2d: "Conversaciones con clubes seleccionados",
+        step3: "Próximo",
+        step3d: "Mejoras a partir de feedback operativo real",
+        pilot: "Conversaciones piloto en curso",
+        p1: "Monopoli Padel Club",
+        p2: "BS Padel",
+        p3: "Lion’s Padel",
+      },
+      founder: {
+        eyebrow: "Experiencia real sobre el terreno",
+        title: "Nacido dentro de la gestión diaria de clubes.",
+        lead:
+          "Padel Manager no nace de un pitch deck ni de una idea teórica, sino de años de experiencia directa en el mundo del pádel: gestión operativa de clubes, organización de competiciones, actividad en pista y coordinación diaria de jugadores, staff y calendario.",
+        p1:
+          "La experiencia acumulada entre dirección de club, actividad deportiva y desarrollo de metodologías organizativas llevó al modelo BPM (Business Padel Management): una visión operativa pensada específicamente para las necesidades reales de los centros de pádel modernos.",
+        p2:
+          "De esa experiencia nace Padel Manager: un sistema operativo competitivo diseñado para simplificar operativa, competiciones, planificación y relación con jugadores en una sola plataforma.",
+        b1: "5+ años en el sector pádel",
+        b2: "Dirección operativa de club",
+        b3: "Metodología BPM",
+        b4: "Experiencia real sobre el terreno",
+        linkedin: "Perfil profesional",
+      },
+      contact: {
+        eyebrow: "Próximo paso",
+        title: "Hablemos de piloto, partnership o inversión en fase inicial.",
+        lead:
+          "Buscamos clubes para validación operativa, partners estratégicos e inversores que entiendan SaaS sport & venue.",
+        audience1: "Clubes piloto",
+        audience2: "Partners estratégicos",
+        audience3: "Inversores en fase inicial",
+        ctaPrimary: "Escribe a bpm@padelmanageros.com",
+        ctaSecondary: "Ver estado del proyecto",
+        emailLabel: "Email",
+        phoneLabel: "Teléfono",
+        linkedinLabel: "LinkedIn",
+        note: "Respuesta directa, sin formularios ni afirmaciones no validadas.",
+      },
+      alt: {
+        hero: "Dashboard operativo de Padel Manager",
+        problem: "Herramientas fragmentadas en la gestión de un club de pádel",
+        solution: "Dirección en vivo del club con calendario y actividades",
+        intelligence: "Motor de compatibilidad de jugadores",
+        domains: "Nueve dominios operativos de Padel Manager",
+        ai: "Asistente IA operativo para competiciones",
+        runtime: "Gestión en vivo de competiciones",
+        vision: "Ecosistema competitivo conectado",
+        mobile: "Experiencia móvil del club",
+      },
+      footer: {
+        tagline: "Sistema operativo para clubes de pádel modernos.",
+        rights: "© Padel Manager · MVP avanzado · fase piloto",
+      },
+    },
   };
 
   function get(obj, path) {
@@ -366,7 +544,7 @@
 
   function detectLang() {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "en" || saved === "it") return saved;
+    if (saved === "en" || saved === "it" || saved === "es") return saved;
     return "it";
   }
 
