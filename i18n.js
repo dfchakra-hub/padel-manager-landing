@@ -11,7 +11,7 @@
         ogDescription:
           "Padel Manager unifica operatività, competizioni, calendario, giocatori, pagamenti e AI in un unico sistema operativo per circoli padel.",
       },
-      brand: { subtitle: "Sistema operativo per circoli" },
+      brand: { name: "Padel Manager", subtitle: "Sistema operativo per circoli" },
       nav: {
         problem: "Problema",
         solution: "Soluzione",
@@ -189,7 +189,7 @@
         ogDescription:
           "Padel Manager unifies club operations, competitions, calendar, players, payments and AI in one operating system for padel clubs.",
       },
-      brand: { subtitle: "Club operating system" },
+      brand: { name: "Padel Manager", subtitle: "Club operating system" },
       nav: {
         problem: "Problem",
         solution: "Solution",
