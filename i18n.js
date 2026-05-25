@@ -135,11 +135,19 @@
         p3: "Lion’s Padel",
       },
       founder: {
-        eyebrow: "Founder",
-        title: "Costruito dentro circoli reali.",
-        p1: "Daniele Francesco Cavallo — avvocato, ex imprenditore e consulente (HR e gestione operativa), con direzione diretta di circoli padel.",
-        p2: "Da quel lavoro: metodologia BPM e Padel Manager come infrastruttura competitiva.",
-        linkedin: "Profilo LinkedIn",
+        eyebrow: "Esperienza reale sul campo",
+        title: "Nato dentro la gestione quotidiana dei circoli.",
+        lead:
+          "Padel Manager non nasce da un pitch deck o da un’idea teorica, ma da anni di esperienza diretta nel mondo del padel: gestione operativa di circoli, organizzazione competizioni, attività in campo e coordinamento quotidiano di giocatori, staff e calendario.",
+        p1:
+          "L’esperienza maturata tra direzione di club, attività sportiva e sviluppo di metodologie organizzative ha portato alla creazione del modello BPM (Business Padel Management): una visione operativa pensata specificamente per le esigenze reali dei centri padel moderni.",
+        p2:
+          "Da questa esperienza nasce Padel Manager: un sistema operativo competitivo progettato per semplificare operatività, competizioni, pianificazione e relazione con i giocatori in un’unica piattaforma.",
+        b1: "5+ anni nel settore padel",
+        b2: "Direzione operativa club",
+        b3: "Metodologia BPM",
+        b4: "Esperienza reale sul campo",
+        linkedin: "Profilo professionale",
       },
       contact: {
         eyebrow: "Prossimo passo",
@@ -294,11 +302,19 @@
         p3: "Lion’s Padel",
       },
       founder: {
-        eyebrow: "Founder",
-        title: "Built inside real clubs.",
-        p1: "Daniele Francesco Cavallo — lawyer, former entrepreneur and consultant (HR and operations), with direct padel club leadership.",
-        p2: "From that work: BPM methodology and Padel Manager as competitive infrastructure.",
-        linkedin: "LinkedIn profile",
+        eyebrow: "Real field experience",
+        title: "Born inside day-to-day club management.",
+        lead:
+          "Padel Manager was not born from a pitch deck or a theoretical idea, but from years of direct experience in padel: club operations, competition organisation, on-court activity and daily coordination of players, staff and calendar.",
+        p1:
+          "Experience across club leadership, sports activity and organisational methodology development led to the BPM model (Business Padel Management): an operational vision built specifically for modern padel centres.",
+        p2:
+          "From that experience comes Padel Manager: a competitive operating system designed to simplify operations, competitions, planning and player relationships in one platform.",
+        b1: "5+ years in padel",
+        b2: "Club operational leadership",
+        b3: "BPM methodology",
+        b4: "Real field experience",
+        linkedin: "Professional profile",
       },
       contact: {
         eyebrow: "Next step",
